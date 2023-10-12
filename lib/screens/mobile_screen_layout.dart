@@ -10,8 +10,15 @@ class MobileScreenLayout extends StatelessWidget {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {},
+            backgroundColor: tabColor,
+            child: const Icon(
+              Icons.message_rounded,
+              color: Colors.white,
+            ),
+          ),
           appBar: AppBar(
-            
             elevation: 0,
             title: const Text(
               "Whatsapp",
@@ -48,7 +55,7 @@ class MobileScreenLayout extends StatelessWidget {
                   )
                 ]),
           ),
-          body: ContactsLists(),
+          body: const ContactsLists(),
         ));
   }
 }

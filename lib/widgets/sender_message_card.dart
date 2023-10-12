@@ -18,8 +18,8 @@ class SenderMessageCard extends StatelessWidget {
         child: Card(
           elevation: 1,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          color: messageColor,
-          margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+          color: senderMessageColor,
+          margin: EdgeInsets.symmetric(horizontal: 15,vertical: 5),
           child: Stack(
             children: [
               Padding(
@@ -40,7 +40,7 @@ class SenderMessageCard extends StatelessWidget {
                       style: TextStyle(fontSize: 13, color: Colors.white60),
                     ),
                     SizedBox(width: 5,),
-                    Icon(Icons.done_all_outlined,color: Colors.white60,)
+                    Icon(Icons.done_all_outlined,color: Colors.white60, size: 17,)
                   ],
                 ),
               )

@@ -24,7 +24,7 @@ class MyMessageCard extends StatelessWidget {
             children: [
               Padding(
                 padding:
-                    EdgeInsets.only(left: 10, right: 30, top: 5, bottom: 20),
+                    EdgeInsets.only(left: 10, right: 5, top: 5, bottom: 20),
                 child: Text(
                   message,
                   style: TextStyle(fontSize: 16),
@@ -40,7 +40,7 @@ class MyMessageCard extends StatelessWidget {
                       style: TextStyle(fontSize: 13, color: Colors.white60),
                     ),
                     SizedBox(width: 5,),
-                    Icon(Icons.done_all_outlined,color: Colors.white60,)
+                    Icon(Icons.done_all_outlined,color: Colors.white60,size: 17,)
                   ],
                 ),
               )

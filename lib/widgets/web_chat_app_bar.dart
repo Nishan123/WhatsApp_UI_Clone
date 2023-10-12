@@ -14,7 +14,7 @@ class WebChatAppBar extends StatelessWidget {
       padding: EdgeInsets.all(10),
       child: Row(
         children: [
-          CircleAvatar(
+         const CircleAvatar(
             backgroundImage: NetworkImage(
                 'https://images.pexels.com/photos/620074/pexels-photo-620074.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
             radius: 28,
