@@ -21,7 +21,7 @@ class MobileScreenLayout extends StatelessWidget {
           appBar: AppBar(
             elevation: 0,
             title: const Text(
-              "Whatsapp",
+              "WhatsApp",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             actions: [

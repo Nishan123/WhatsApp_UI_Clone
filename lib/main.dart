@@ -16,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-          scaffoldBackgroundColor: backgroundColor,
-          appBarTheme:
-              const AppBarTheme(backgroundColor: appBarColor, elevation: 0),
-          useMaterial3: true),
+        scaffoldBackgroundColor: backgroundColor,
+        appBarTheme:
+            const AppBarTheme(backgroundColor: appBarColor, elevation: 0),
+      ),
       home: const ResponsiveLayout(
           mobileScreenLayout: MobileScreenLayout(),
           webScreenLayout: WebScreenLayout()),
