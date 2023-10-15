@@ -1,17 +1,20 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:whatsapp_clone/common/utils/utility.dart';
 import 'package:whatsapp_clone/common/widgets/custom_button.dart';
 import 'package:whatsapp_clone/constants/colors.dart';
+import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = '/login-screen';
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final phoneController = TextEditingController();
   Country? country;
   @override
@@ -23,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void pickCountry() {
     showCountryPicker(
         context: context,
-        countryListTheme: CountryListThemeData(
+        countryListTheme: const CountryListThemeData(
             bottomSheetHeight: 500,
             borderRadius: BorderRadius.zero,
             inputDecoration: InputDecoration(
@@ -38,12 +41,22 @@ class _LoginScreenState extends State<LoginScreen> {
         });
   }
 
+  void sendPhoneNumber() {
+    String phoneNumber = phoneController.text.trim();
+    if (country != null && phoneNumber.isNotEmpty) {
+      ref
+          .read(authControllerProvider)
+          .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
+    } else
+      showSnackBar(context: context, content: 'Fill Out All the filds');
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return GestureDetector(
-      onTap: () =>  FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Enter your phone number"),
@@ -58,7 +71,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   const Padding(
                     padding: EdgeInsets.symmetric(vertical: 13),
-                    child: Text("WhatsApp will need to verify your phone number"),
+                    child:
+                        Text("WhatsApp will need to verify your phone number"),
                   ),
                   TextButton(
                       onPressed: pickCountry,
@@ -72,7 +86,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: TextField(
                           controller: phoneController,
                           keyboardType: TextInputType.number,
-                          decoration: InputDecoration(hintText: "phone number"),
+                          decoration: const InputDecoration(
+                            hintText: "phone number",
+                          ),
                         ),
                       ),
                     ],
@@ -81,10 +97,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   Padding(
                     padding: const EdgeInsets.only(left: 75, right: 75),
                     child: CustomButton(
-                        radius: 8,
-                        text: "NEXT",
-                        bgColor: Colors.grey,
-                        onTap: () {}),
+                      radius: 8,
+                      text: "NEXT",
+                      bgColor: Colors.grey,
+                      onTap: sendPhoneNumber,
+                    ),
                   )
                 ],
               ),
