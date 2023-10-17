@@ -32,7 +32,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             inputDecoration: InputDecoration(
               hintText: "Search",
               labelText: null,
-              prefixIcon: Icon(Icons.search),
+              prefixIcon: Icon(Icons.search), 
             )),
         onSelect: (Country _country) {
           setState(() {
@@ -47,8 +47,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       ref
           .read(authControllerProvider)
           .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
-    } else
+    } else {
       showSnackBar(context: context, content: 'Fill Out All the filds');
+    }
   }
 
   @override
