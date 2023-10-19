@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_clone/common/widgets/loader.dart';
-import 'package:whatsapp_clone/constants/colors.dart';
 import 'package:whatsapp_clone/features/auth/controller/auth_controller.dart';
+import 'package:whatsapp_clone/features/chat/widgets/bottom_chat_field.dart';
 import 'package:whatsapp_clone/models/user_model.dart';
 import 'package:whatsapp_clone/widgets/chat_list.dart';
 
@@ -45,42 +45,11 @@ class MobileChatScreen extends ConsumerWidget {
       body: SafeArea(
           child: Column(
         children: [
-          Expanded(child: ChatList()),
-          TextField(
-            decoration: InputDecoration(
-                filled: true,
-                fillColor: mobileChatBoxColor,
-                hintText: 'Message',
-                hintStyle: TextStyle(color: Colors.white54),
-                prefixIcon: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.emoji_emotions_outlined,
-                    color: Colors.grey,
-                  ),
-                ),
-                suffixIcon: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.attach_file,
-                        color: Colors.grey,
-                      ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.camera_alt,
-                        color: Colors.grey,
-                      ),
-                    ),
-                  ],
-                )),
-          )
+         const Expanded(child: ChatList()),
+          BottomChatField()
         ],
       )),
     );
   }
 }
+
