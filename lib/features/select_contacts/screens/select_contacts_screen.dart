@@ -39,7 +39,7 @@ class SelectContactScreen extends ConsumerWidget {
                 itemBuilder: (context, index) {
                   final contact = contactList[index];
                   return InkWell(
-                    onTap: ()=>selectContact(ref, contact, context),
+                    onTap: () => selectContact(ref, contact, context),
                     child: Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: ListTile(

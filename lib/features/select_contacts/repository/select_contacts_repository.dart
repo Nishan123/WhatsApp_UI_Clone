@@ -42,7 +42,7 @@ class SelectContactRepository {
           ' ',
           '',
         );
-       
+
         if (selectedPhoneNum == userData.phoneNumber) {
           isFound = true;
           Navigator.pushNamed(
@@ -53,7 +53,6 @@ class SelectContactRepository {
               'uid': userData.uid,
             },
           );
-          
         }
       }
 
