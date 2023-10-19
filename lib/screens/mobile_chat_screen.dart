@@ -4,6 +4,7 @@ import 'package:whatsapp_clone/constants/info.dart';
 import 'package:whatsapp_clone/widgets/chat_list.dart';
 
 class MobileChatScreen extends StatelessWidget {
+  static const String routeName = '/mobile-chat-screen';
   const MobileChatScreen({super.key});
 
   @override
@@ -48,7 +49,7 @@ class MobileChatScreen extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                     IconButton(
+                    IconButton(
                       onPressed: () {},
                       icon: const Icon(
                         Icons.camera_alt,
