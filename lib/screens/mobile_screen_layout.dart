@@ -12,6 +12,7 @@ class MobileScreenLayout extends StatelessWidget {
         length: 3,
         child: Scaffold(
           floatingActionButton: FloatingActionButton(
+            elevation: 0,
             onPressed: () {
               Navigator.pushNamed(context, SelectContactScreen.routeName);
             },
